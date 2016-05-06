@@ -15,6 +15,8 @@ require 'pathname'
 require 'active_record'
 require 'logger'
 
+require 'json'
+
 require 'sinatra'
 require "sinatra/reloader" if development?
 
@@ -40,6 +42,7 @@ end
 # Set up the controllers and helpers
 Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }
 Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
+Dir[APP_ROOT.join('app', 'lib', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 # require APP_ROOT.join('config', 'database')
